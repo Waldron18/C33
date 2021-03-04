@@ -1,6 +1,7 @@
 const Engine = Matter.Engine;
 const World= Matter.World;
 const Bodies = Matter.Bodies;
+const Body = Matter.Body;
 const Constraint = Matter.Constraint;
 
 var engine, world;
@@ -49,7 +50,6 @@ function setup(){
 }
 
 function draw(){
-    console.log(backgroundImg)
     if(backgroundImg !== undefined)
         background(backgroundImg);
 
@@ -100,6 +100,8 @@ function keyPressed(){
     if(keyCode === 32){
        slingshot.attach(bird.body);
        gameState = "onSling";
+       bird.trajectory = [];
+       Body.setPosition(bird.body,{x:200,y:50})
     }
 }
 
